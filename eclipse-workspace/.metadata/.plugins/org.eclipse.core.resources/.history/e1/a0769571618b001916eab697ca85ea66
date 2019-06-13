@@ -1,0 +1,15 @@
+package com.organization;
+
+public abstract class Security {
+	
+	public void authenticate() {
+		System.out.println("Auth...");
+	}
+	public void login() {
+		System.out.println("log :: in");
+	}
+	
+	public void logout() {
+		System.out.println("Log :: out");
+	}
+}

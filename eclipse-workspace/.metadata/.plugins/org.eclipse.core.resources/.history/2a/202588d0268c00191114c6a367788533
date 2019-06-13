@@ -1,0 +1,20 @@
+package application;
+import exception.*;
+
+public class App {
+	public static void main(String[] args) {
+		Order order = new Order();
+		
+		try {
+			boolean status = order.orderItem(17, "black");
+			System.out.println("Order Confirmed " + status);
+		}
+		catch(NoColorFoundException e){
+			System.out.println(e.getMessage());
+		} catch (NoSizeFoundException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
+		
+	}
+}

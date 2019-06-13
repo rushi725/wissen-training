@@ -1,0 +1,17 @@
+package com.organization;
+
+public class Nexwave extends Security {
+	public void doLearn() {
+		authenticate();
+		login();
+		System.out.println("NexWave :: doLearn()");
+		logout();
+	}
+	public void doLab() {
+		authenticate();
+		login();
+		System.out.println("NexWave :: doLab()");
+		logout();
+	}
+	
+}

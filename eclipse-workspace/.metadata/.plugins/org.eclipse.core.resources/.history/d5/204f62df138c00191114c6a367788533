@@ -1,0 +1,7 @@
+package application;
+import exception.*;
+
+public class App {
+	Order order = new Order();
+
+}

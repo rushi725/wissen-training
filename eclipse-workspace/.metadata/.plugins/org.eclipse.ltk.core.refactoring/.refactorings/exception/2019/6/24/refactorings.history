@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;exception.NoSizeException.java&apos; to &apos;NoSizeFoundException.java&apos;&#x0D;&#x0A;- Original project: &apos;exception&apos;&#x0D;&#x0A;- Original element: &apos;exception.NoSizeException.java&apos;&#x0D;&#x0A;- Renamed element: &apos;exception.NoSizeFoundException.java&apos;" description="Rename compilation unit &apos;NoSizeException.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;exception{NoSizeException.java" name="NoSizeFoundException.java" references="false" stamp="1560233714214" version="1.0"/>
+</session>

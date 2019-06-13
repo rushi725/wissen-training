@@ -1,0 +1,12 @@
+package application;
+import exception.*;
+
+public class App {
+	try {
+		boolean status = order.orderItem(17, "black");
+	}
+	catch (NoColorFoundException e){
+		
+		
+	}
+}

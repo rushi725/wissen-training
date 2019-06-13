@@ -1,0 +1,13 @@
+package holdthedoor;
+
+public class Light implements Listener{
+	
+	public void switchOn(int floor,int num) {
+		System.out.println("Light On of door " +num+ "of floor " + floor);
+	}
+	
+	public void switchOff(int floor,int num) {
+		System.out.println("Light On of door " +num+ "of floor " + floor);
+	}
+
+}

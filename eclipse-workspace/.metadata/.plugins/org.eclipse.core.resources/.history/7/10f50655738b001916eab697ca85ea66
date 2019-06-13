@@ -1,0 +1,29 @@
+
+package holdthedoor;
+
+import java.util.*;
+public class Door {
+	int floor;
+	int num;
+	List<Listener> arr;
+	public Door(int floor, int num){
+		this.floor = floor;
+		this.num = num;
+	}
+	
+	public static void open(Door door) {
+
+		System.out.println("door open");
+		
+		
+		
+	}
+	
+	public static void close() {
+		System.out.println("door close");
+	}
+	
+	public void addListener(Listener lst) {
+		arr.add(lst);
+	}
+}

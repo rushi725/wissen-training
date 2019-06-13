@@ -1,0 +1,12 @@
+package application;
+import exception.*;
+public class Order {
+	public boolean orderItem(int size,String color) {
+		if(size <= 15) {
+			return true;
+		}
+		else {
+			throw new NoSizeFoundException(size);
+		}
+	}
+}

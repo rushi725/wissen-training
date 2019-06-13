@@ -1,0 +1,12 @@
+package holdthedoor;
+
+public class app {
+	public static void main(String[] args) {
+		Door door = new Door(12,32);
+		
+		Light light = new Light();
+		
+		door.open();
+		door.close();
+	}
+}

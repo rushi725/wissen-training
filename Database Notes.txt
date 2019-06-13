@@ -1,0 +1,125 @@
+
+- DBMS Instance => Collection of memory components and multiple background process and each background process are independent of one another.
+
+- OS Background Process for DBMS =>  -Database Writer 
+ 									 -Checkpoint Process 
+ 									 -System Monitor 
+ 									 -Process Monitor
+ 									 -Archvie Process
+ 									 -Server Process
+ 									 -Recoverer
+ 									 -Log Writer
+
+- Database always associated with single Instance however you can have multiple instances of same type but on differet nodes (uses RAC- Real Application Cluster - mutliple same instances on many nodes).
+
+- Data Dictionary or meta data or System Tables are tables which contain data for data.
+
+- Actual data is called as User Tables.
+
+- Some Important Terms => - Relation: a Table
+						  - Tuple: a row in table
+						  - Attribute: a colun in table
+						  - Degree: number of attributes
+						  - Cardinality: number of tuples
+						  - PrimaryKey: a unique identifier
+						  - Domain: a pool of values from which specific attributes of specific 	relations draw theor values
+
+- SQL has components -> Data Definition Language
+						Transcation Control Language
+						Data Manipulation language 
+
+- Behind the scenes DBMS has: - Query Engine - responsible for processing sql statement
+							  - Query Optimizer - create execution plans
+							  - Storge management - maintaince of storage of data
+							  - Transcation Managment - part of DML attributes	
+
+- Any statment in SQL is called Query.
+
+- Clause(eg: INSERT) tells DBMS to join two things.
+
+- VALUES is keyword.
+
+- Transcation: sequence of statements that will be executed, Transcations have ACID properties:
+				- A = atomicity   (a transcation should be done or undone completely)
+				- C = consistency (every transcation make it consisent)
+				- I = isolation   (each transcation should work indepenedent)
+				- D = durability  (complete transcation should remain permanent)
+
+- Overview of Database design : - Conceptual Design
+								- Schema Normalization
+								- Physical Database Design and tuning
+
+- ER(Entity Relationship) has three main components: - Entity
+													 - Attribute 
+													 - Relationship
+
+- Entity can be an person,object.	
+
+- Relationship describes relation between entites represented by diamonds.
+
+- Weak entity are dependednt on other entites.
+
+- Multivalued attribute are attributes which contains multiple values in the same column / subcolumns.
+
+- Table within a table -> nested table similarly nested column.
+
+- Generalization is a bottom-up approach in which two lower level entities combine to form a higher level entity.
+
+- Specialization in which higher level entity broken down into several entities.
+
+- OLTP - fast response - prod
+  OLAP - correct output - data minning
+
+- Use High Slecetive column for splitting the tables.
+
+- username : sys as sysdb
+  password: orcl
+
+- desc command to see structure of table, meta data table names end with 's'.
+
+- schema name(logical entity name) and username(physical entity name) will always be same.
+
+- show user - tells which user is currently accessing
+
+- identifies is used to chnage the password of any account 
+
+- select USERNAME,CREATED,ACCOUNT_STATUS from dba_users;
+	alter user hr identified by hr account unlock;
+
+- inorder to connect to remote database use username/password@remote_database_name
+
+- meta data table names -  User 		  - user_xyz
+								  			All_xyz
+						   dba/SYS/SYSTEM - dba_xyz
+						   				  - V$xyz	  
+
+// Day2
+Server - Listener File - listener.ora
+Client - Server & Database Address - tnsnames.ora
+Location - C:\app\Nexwave\product\11.2.0\dbhome_1\NETWORK\ADMIN
+Port connection of Oracle - 1521
+
+8i - i internet
+9i - i intelligent
+10g - grid
+11g - grid
+12c - cloud
+
+RAC - Real Apllication Configuration
+      --> multiple instance stored at different geographical location.
+
+      						 ___ ___ ___ ___ ___
+      						|___|_+_|_+_|___|___|
+      						|___|_+_|___|_+_|___|
+      						|___|_+_|___|_+_|___|	
+      						|___|_+_|_+_|___|___|
+      						|___|_+_|___|_+_|___|
+      						|___|_+_|___|_+_|___|
+      						|___|_+_|___|_+_|___|
+
+
+
+
+ MRU - Most Recently Used - Data in RAM
+ LRU - Least Recently used - may or may not be in RAM								  	
+

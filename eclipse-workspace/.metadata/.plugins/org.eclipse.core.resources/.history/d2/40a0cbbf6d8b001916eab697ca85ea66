@@ -1,0 +1,7 @@
+package holdthedoor;
+
+public class Door {
+	int floor;
+	int num;
+	
+}

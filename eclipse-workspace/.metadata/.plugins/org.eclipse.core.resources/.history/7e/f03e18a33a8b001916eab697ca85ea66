@@ -1,0 +1,7 @@
+package com.app;
+
+abstract class AbstarctPainter implements Painter {
+	void fillColor(String color) {
+		System.out.println("color filled");
+	}
+}

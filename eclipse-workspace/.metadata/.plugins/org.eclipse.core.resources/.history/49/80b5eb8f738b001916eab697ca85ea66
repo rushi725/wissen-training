@@ -1,0 +1,6 @@
+package holdthedoor;
+
+public interface Listener {
+	public void switchOn();
+	public void switchOff();
+}

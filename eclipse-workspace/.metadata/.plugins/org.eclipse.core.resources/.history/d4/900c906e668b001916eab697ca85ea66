@@ -1,0 +1,22 @@
+package com.organization;
+
+public class Nexwave {
+	private Security sec;
+
+	public void setSecurity(Security sec) {
+		this.sec = sec;
+	}
+	public void doLearn() {
+		sec.authenticate();
+		sec.login();
+		System.out.println("NexWave :: doLearn()");
+		sec.logout();
+	}
+	public void doLab() {
+		sec.authenticate();
+		sec.login();
+		System.out.println("NexWave :: doLab()");
+		sec.logout();
+	}
+	
+}

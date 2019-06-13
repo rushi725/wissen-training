@@ -1,0 +1,37 @@
+
+package holdthedoor;
+
+import java.util.*;
+public class Door {
+	int floor;
+	int num;
+	ArrayList<Listener> arr = new ArrayList<Listener>();
+	public Door(int floor, int num){
+		this.floor = floor;
+		this.num = num;
+	}
+	
+	public void open() {
+		System.out.println("door open");
+		for(Listener lst : arr ) {
+			lst.switchOn(floor,num);
+		} 
+		
+	}
+	
+	public void close() {
+		System.out.println("door close");
+		for(Listener lst : arr ) {
+			lst.switchOff(floor,num);
+		} 
+	}
+	
+	public void addListener(Listener lst) {
+		arr.add(lst);
+	}
+	
+	public void removeListener(Listener lst) {
+		arr.remove(lst);
+	}
+}
+

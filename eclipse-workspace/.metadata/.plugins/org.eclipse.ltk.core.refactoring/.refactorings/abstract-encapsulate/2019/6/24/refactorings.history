@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.app.Draw.java&apos; to &apos;Painter.java&apos;&#x0D;&#x0A;- Original project: &apos;abstract-encapsulate&apos;&#x0D;&#x0A;- Original element: &apos;com.app.Draw.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.app.Painter.java&apos;" description="Rename compilation unit &apos;Draw.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;com.app{Draw.java" name="Painter.java" references="false" stamp="1560141470231" version="1.0"/>
+</session>
