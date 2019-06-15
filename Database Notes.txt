@@ -123,3 +123,77 @@ RAC - Real Apllication Configuration
  MRU - Most Recently Used - Data in RAM
  LRU - Least Recently used - may or may not be in RAM								  	
 
+
+Types of Table :-
+-> Cluster Table
+-> Index Organized Table
+-> Partition Table
+	>> Range Partition
+	>> List Partition
+	>> Hash Partition
+	>> Composite Partition
+
+
+-> user_sequences is a data dictionary table for sequence
+
+SQL Statement Processor 
+
+1) Parse --> Validate variable/syntax/statment
+2) Bind --> Checks if variables are available to use it
+	      >> Query Optimizer --> Executes multiple class 
+3) Execute --> I/O read/write from disk
+4) Fetch (select) 
+
+SQL Hints 
+ - To Alter SQL Processor plan 
+
+
+dbms_output.put_line --> Oracle Supplied Package;
+ Index Tree
+
+  			 |--> root    | -> Index Entry Header
+  			/ \           | -> Key  Column Length
+  		   /\ /\          | -> Key Column Value
+  		  /\ \ /\         | -> RowId
+
+Types of Privileges
+--> System privileges - affecting system activities  -> access to database
+--> object privileges - affecting objects -> user_table data -> manipulating data
+
+-> Scope of the variable will be upside of the program
+-> If the variable is not declared or assigned within the same program then scope checks it to 
+   session level
+-> If session has that variable then value will be considered otherwise scope goes to instance 
+   level                                      ^
+   											 / \
+   											Scope
+   										   /  ^  \ 
+   										  /	 / \  \
+   										 / Instance\
+   										(     ^     )
+   										|     |     |
+   										|  Session  |
+   										|     ^     | 
+   										|     |     |
+   										(  Program  )
+   										 \_________/
+   									  /\ 	/ | \     /\
+   									  ||   /  |	 \    ||
+   								_/\/\_/\__/   |   \___/\_/\/\/\_
+   											  ^	
+   					_______________________________________________________			      
+              	   |		Function          |     Procedure              |
+              	   |-------------------------------------------------------|		
+				   |  1. Returns value 	      | 1. Does not Return value   |
+				   |-------------------------------------------------------|
+				   |  2. Part of expression	  | 2. Not part of expression  |
+				   |-------------------------------------------------------|
+				   |  3. returns single value | 3.Can return multiple value|
+				   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^													  
+											  
+									   IS <--> AS
+										\      /
+										 \    /
+										  \  /
+										   \/
+										  Same
