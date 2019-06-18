@@ -1,6 +1,6 @@
 package com;
 
-import java.util.function.Predicate;
+//import java.util.function.Predicate;
 
 interface StringToIntMapper{
 	int map(String s);
