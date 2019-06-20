@@ -1,4 +1,5 @@
 package com.app.service;
+import java.awt.event.ItemEvent;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -48,28 +49,35 @@ public class TodoService {
 	
 	public void completeTodo(int id) {
 		//todoList.stream().filter(i->i.getId() == id).forEach(i->i.setCompleted(!i.isCompleted()));
-		for(Todo todo : todoList) 
-			if(todo.getId() == id)
-				todo.setCompleted(!todo.isCompleted());
+//		for(Todo todo : todoList) 
+//			if(todo.getId() == id)
+//				todo.setCompleted(!todo.isCompleted());
+		
+		todoList.forEach(item -> {
+			if(item.getId() == id)  
+				item.setCompleted(!item.isCompleted());
+		}
+		);
 	}
 	
 	public void completeAll() {
 		
 		//todoList.stream().forEach(i->i.setCompleted(true));
+		boolean isAllCompleted = todoList.stream().allMatch(Todo::isCompleted);
 		for(Todo todo : todoList) 
-				todo.setCompleted(!todo.isCompleted());
+				todo.setCompleted(!isAllCompleted);
 	}
 	
 	public long clearCompleted() {
-//		long count = todoList.stream().filter(i->i.isCompleted() == true).count();
+//		long count = todoList.stream().filter(i->i.isCompleted()).count();
 //		try {
-//		todoList.stream().filter(i->i.isCompleted() == true).forEach(i->todoList.remove(i));
+//		todoList.stream().filter(i->i.isCompleted()).forEach(i->todoList.remove(i));
 //		}
 //		catch (NullPointerException e){
 //			System.out.println(e.getMessage());
 //		}
 //		return count;
-		long count = todoList.stream().filter(i->i.isCompleted() == true).count();
+		long count = todoList.stream().filter(i->i.isCompleted()).count();
 		todoList.removeIf(i->i.isCompleted());
 		return count;
 	}
@@ -89,7 +97,6 @@ public class TodoService {
 				.collect(Collectors.toList());
 		
 		return list;
-		
 	}
 
 	

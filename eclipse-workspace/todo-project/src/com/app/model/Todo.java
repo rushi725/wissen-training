@@ -12,7 +12,7 @@ public class Todo {
 	
 	public Todo(String title){
 		this.title = title;
-		this.completed = false;
+		//this.completed = false;
 		this.date = LocalDateTime.now();
 		this.id = count;
 		count++;
