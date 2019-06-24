@@ -1,0 +1,31 @@
+.container{
+	margin-left: 200px;
+	margin-right: 200px;
+	padding: 20px;
+	height: 600px;
+	border: 1px solid black;
+
+}
+
+#image{
+	height: 100px;
+	width: 150px;
+	border: 1px solid black;
+	display: inline;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
