@@ -2,8 +2,10 @@ package com.rushabh;
 
 import org.apache.log4j.Logger;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.rushabh.config.AccountServiceConfiguration;
 import com.rushabh.repository.AccountRepository;
 import com.rushabh.repository.JdbcAccountRepository;
 import com.rushabh.repository.JpaAccountRepository;
@@ -19,8 +21,11 @@ public class App {
 		// -------------------------------------
 		// init / boot
 		// -------------------------------------
+//		ConfigurableApplicationContext context = null;
+//		context = new ClassPathXmlApplicationContext("account-service.xml");
+		
 		ConfigurableApplicationContext context = null;
-		context = new ClassPathXmlApplicationContext("account-service.xml");
+		context = new AnnotationConfigApplicationContext(AccountServiceConfiguration.class);
 
 		LOGGER.info("app init/booted..");
 		System.out.println();
