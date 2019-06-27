@@ -1,8 +1,17 @@
 package com.rushabh.model;
 
-public class Account {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "Accounts")
+public class Account {
+	@Id
+	@Column(name = "num")
 	private String number;
+	@Column(name = "Balance")
 	private double balance;
 
 	public Account() {

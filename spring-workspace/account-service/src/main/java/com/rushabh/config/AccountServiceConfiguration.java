@@ -16,7 +16,7 @@ import com.rushabh.repository.AccountRepository;
 @EnableTransactionManagement
 @EnableAspectJAutoProxy
 @Configuration
-@Import(value= {TransactionManagerConfiguration.class,DataSourceConfiguration.class})
+@Import(value= {TransactionManagerConfiguration.class,DataSourceConfiguration.class,JpaConfiguration.class})
 @ComponentScan(basePackages = {"com.rushabh.service","com.rushabh.repository","com.rushabh.aspects","com.rushabh.model"})
 
 public class AccountServiceConfiguration {
