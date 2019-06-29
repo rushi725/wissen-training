@@ -1,6 +1,7 @@
 package com.rushabh.service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,6 +69,11 @@ public class NEFTTxrService implements TxrService {
 		LOGGER.info("Txr finished");
 		return true;
 
+	}
+
+	@Override
+	public List<Transaction> getTxrList(String accountNum) {
+		return accountRepository.getTransactions(accountNum);
 	}
 
 }

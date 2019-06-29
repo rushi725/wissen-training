@@ -1,7 +1,11 @@
 package com.rushabh.repository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
@@ -40,6 +44,21 @@ public class JpaAccountRepository implements AccountRepository {
 		LOGGER.info("Transaction added");
 		em.persist(transaction);
 		
+	}
+
+	@Override
+	public List<Transaction> getTransactions(String accountNum) {
+		LOGGER.info("Transaction added " + accountNum);
+		List<Transaction> list = new ArrayList<>();
+		Query q1 = em.createQuery("from Account a where a.number = ?1");
+		q1.setParameter(1, accountNum);
+		Account acc = (Account) q1.getSingleResult();
+		Query query = em.createQuery("FROM Transaction t where t.account = :acc");
+		query.setParameter("acc", acc);
+
+		
+		list = query.getResultList();
+		return list;
 	}
 
 }

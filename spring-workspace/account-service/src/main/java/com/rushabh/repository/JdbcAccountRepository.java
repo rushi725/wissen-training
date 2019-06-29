@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -70,6 +71,12 @@ public class JdbcAccountRepository implements AccountRepository {
 		int rowCount = jdbcTemplate.update(sql,params);
 		LOGGER.info("added transactions: " + rowCount);
 		
+	}
+
+	@Override
+	public List<Transaction> getTransactions(String accountNum) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
