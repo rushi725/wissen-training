@@ -2,13 +2,36 @@ package com.rushabh.model;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+@Entity
+@Table(name = "Transactions")
 public class Transaction {
 	
+	@Id
+	@Column(name = "Id")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
+	@Column(name = "TDate")
 	private LocalDateTime dateTime;
+	@Column(name = "Amount")
 	private double amount;
+	@Column(name = "ClosingBalance")
 	private double closingBalance;
+	@Column(name = "Type")
+	@Enumerated(EnumType.STRING)
 	private TransactionType type;
+	
+	@ManyToOne
+	@JoinColumn(name = "AccountNumber")
 	private Account account;
 	
 

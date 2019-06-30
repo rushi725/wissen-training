@@ -17,10 +17,12 @@ import com.rushabh.repository.AccountRepository;
 public class NEFTTxrService implements TxrService {
 
 	private static final Logger LOGGER = Logger.getLogger("App");
-
+	
+	@Autowired
+	@Qualifier("jpaAccountRepository")
 	private AccountRepository accountRepository;
 	
-	@Autowired 
+	
 	public NEFTTxrService(AccountRepository accountRepository) {
 		this.accountRepository = accountRepository;
 		LOGGER.info("NEFTTxrService created with accountRepository");
@@ -50,14 +52,17 @@ public class NEFTTxrService implements TxrService {
 		transaction.setClosingBalance(toAccount.getBalance());
 		transaction.setType(TransactionType.CREDIT);
 		transaction.setDateTime(LocalDateTime.now());
+		
 		accountRepository.addTransaction(transaction);
 		
-		transaction.setAccount(fromAccount);
-		transaction.setAmount(amount);
-		transaction.setClosingBalance(fromAccount.getBalance());
-		transaction.setType(TransactionType.DEBIT);
-		transaction.setDateTime(LocalDateTime.now());
-		accountRepository.addTransaction(transaction);
+		Transaction transaction2 = new Transaction();
+		transaction2.setAccount(fromAccount);
+		transaction2.setAmount(amount);
+		transaction2.setClosingBalance(fromAccount.getBalance());
+		transaction2.setType(TransactionType.DEBIT);
+		transaction2.setDateTime(LocalDateTime.now());
+		
+		accountRepository.addTransaction(transaction2);
 		
 
 		LOGGER.info("Txr finished");

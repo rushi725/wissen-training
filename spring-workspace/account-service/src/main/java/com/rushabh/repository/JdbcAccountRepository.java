@@ -19,7 +19,7 @@ import com.rushabh.model.Account;
 import com.rushabh.model.Transaction;
 
 import oracle.sql.TIMESTAMP;
-@Repository("jdbcAccountRepository")
+//@Repository("jdbcAccountRepository")
 public class JdbcAccountRepository implements AccountRepository {
 
 	private static final Logger LOGGER = Logger.getLogger("App");
