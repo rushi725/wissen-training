@@ -1,0 +1,23 @@
+<div [ngClass] = "{'d-none': false}">
+<table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let carts of cartItems">
+            <td>{{carts.id}}</td>
+            <td>{{carts.name}}</td>
+            <td>{{carts.price}}</td>
+            <td><button class = "btn btn-outline" (click)="handleBuy($event,carts,false)"><i class="fa fa-minus-square" style="font-size:20px"></i></button>&nbsp;&nbsp;{{cart.get(carts)}}
+                &nbsp;&nbsp;<button class = "btn btn-outline" (click)="handleBuy($event,carts,true)">  <i class="fa fa-plus-square" style="font-size:20px"></i></button></td>
+            <td>{{carts.price*cart.get(carts)}}</td>
+          </tr>
+        </tbody>
+</table>
+</div>

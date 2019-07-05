@@ -1,0 +1,18 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+    <app-navbar [value]="title"></app-navbar>
+    <div class="container">
+        <br><br>
+        <app-cart-badge [value]="cartQty"></app-cart-badge>
+        <br>
+        <app-cart-view [value]="cart"
+                       (buy)="addToCart($event)"></app-cart-view>
+       <!-- <div class="list-group-item" *ngFor="let item of items;let idx=index">-->
+            <app-food-item *ngFor = "let item of items" 
+                                    [value]="item" 
+                                    (buy)="addToCart($event)"
+                                    [cartQty]="cart.get(item)"></app-food-item>
+    </div>
+</div>
+
+
