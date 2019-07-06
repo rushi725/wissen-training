@@ -4,10 +4,15 @@
         <p>{{review.author}}</p>
     </div>
     <div class="col-4">
-            <p>{{review.stars}}</p>
+            <p><span [ngClass]="{'fa fa-star':true, 'checked':(review.stars-1)>=0}"></span>
+                <span [ngClass]="{'fa fa-star':true, 'checked':(review.stars-2)>=0}"></span>
+                <span [ngClass]="{'fa fa-star':true, 'checked':(review.stars-3)>=0}"></span>
+                <span [ngClass]="{'fa fa-star':true, 'checked':(review.stars-4)>=0}"></span>
+                <span [ngClass]="{'fa fa-star':true, 'checked':(review.stars-5)>=0}"></span>
+            </p>
     </div>
     <div class="col-8">
             <p>{{review.body}}</p>
-        </div>
+    </div>
 <div>
 

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { isNgTemplate } from '@angular/compiler';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-food-item',
@@ -8,13 +9,11 @@ import { isNgTemplate } from '@angular/compiler';
 })
 export class FoodItemComponent implements OnInit {
   currentTab = 1
-  constructor() { }
   count=0;
-  @Input() 
-  value = "unknown";
-  @Input("cartQty") cartQty;
+  @Input("value") item;
+  @Input("cartQty") cartQt;
 
-  @Output() buy = new EventEmitter();
+  //@Output() buy = new EventEmitter();
 
   reviews = [
     {author:"angel priya", stars:4,body:"worst"},
@@ -36,9 +35,10 @@ export class FoodItemComponent implements OnInit {
     this.count++;
     //this.boom.emit({ value: (Number.parseInt(this.value, 10)) * this.count })
   }
+  constructor(private cartService: CartService) { }
 
-
-  handleBuy(event,add) {
-    this.buy.emit({ item: this.value, add:add })
+  handleBuy(event) {
+    //this.buy.emit({ item: this.value, add:add })
+    this.cartService.addToCart({item:this.item,add:true})
   }
 }

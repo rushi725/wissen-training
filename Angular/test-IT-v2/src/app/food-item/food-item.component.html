@@ -3,13 +3,13 @@
     <div class="card-body">
     <div class="row">
         <div class="col-4">
-          <img [src]="value.imgPath" class="img-fluid" />
+          <img [src]="item.imgPath" class="img-fluid" />
         </div>
         <div class="col-8">
 
-          <h5>{{value.name}}</h5>
-          <h4 [ngClass]="{badge:true, 'badge-success':value.type==='Veg', 'badge-danger':value.type==='Non Veg'}">{{value.type}}</h4>
-          <h6>&#8377;{{value.price}}</h6>
+          <h5>{{item.name}}</h5>
+          <h4 [ngClass]="{badge:true, 'badge-success':item.type==='Veg', 'badge-danger':item.type==='Non Veg'}">{{item.type}}</h4>
+          <h6>&#8377;{{item.price}}</h6>
           <br />
           <ul class="nav nav-tabs">
             <li class="nav-item">
@@ -34,13 +34,13 @@
             <li class="nav-item">
              <!--<button class = "btn btn-outline" (click)="handleBuy($event,false)"><i class="fa fa-minus-square" style="font-size:20px"></i></button>&nbsp;&nbsp;{{cartQty}}
                   &nbsp;&nbsp;<button class = "btn btn-outline" (click)="handleBuy($event,true)">  <i class="fa fa-plus-square" style="font-size:20px"></i></button>-->
-              <button class="btn btn-dark" (click) = "handleBuy($event,true)">Buy</button>  
+              <button class="btn btn-dark" (click) = "handleBuy($event)">Add Item</button>  
             </li>
-            <li class="nav-item" style="padding-left: 100px;">
-                 <div class="badge badge-dark">{{cartQty}}</div>         
+            <li class="nav-item" style="padding-left: 50px;">
+                 <div class="badge badge-dark">{{cartQt}}</div>         
             </li>
           </ul>
-          <div *ngIf="isTabSelected(1)">{{value.description}}</div>
+          <div *ngIf="isTabSelected(1)">{{item.description}}</div>
           <div *ngIf="isTabSelected(2)"></div>
           <div *ngIf="isTabSelected(3)">
               <app-review *ngFor = "let review of reviews" [value]="review"></app-review>
@@ -50,4 +50,5 @@
       </div>
     </div>
 </div>
+
 

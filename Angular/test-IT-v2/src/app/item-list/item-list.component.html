@@ -1,0 +1,3 @@
+<app-food-item *ngFor = "let item of items" 
+[value]="item" 
+[cartQty]="cart.get(item)"></app-food-item>

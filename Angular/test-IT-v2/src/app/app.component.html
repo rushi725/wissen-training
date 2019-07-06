@@ -2,16 +2,37 @@
 <div>
     <app-navbar [value]="title"></app-navbar>
     <div class="container">
-        <br><br>
-        <app-cart-badge [value]="cartQty"></app-cart-badge>
+        <!--<app-cart-badge [value]="cartQty"></app-cart-badge>
         <br>
         <app-cart-view [value]="cart"
-                       (buy)="addToCart($event)"></app-cart-view>
+                       (buy)="addToCart($event)"></app-cart-view>-->
        <!-- <div class="list-group-item" *ngFor="let item of items;let idx=index">-->
-            <app-food-item *ngFor = "let item of items" 
+         <!--   <app-food-item *ngFor = "let item of items" 
                                     [value]="item" 
                                     (buy)="addToCart($event)"
-                                    [cartQty]="cart.get(item)"></app-food-item>
+                                    [cartQty]="cart.get(item)"></app-food-item>-->
+
+
+    <!--<ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link " href="/">home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " routerLink="/items">items</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " routerLink="/cart">cart</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " routerLink="/orders">orders</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " routerLink="/login">sign-in</a>
+        </li>
+        </ul>
+    </div>-->
+    <div class="container">
+        <router-outlet></router-outlet>
     </div>
 </div>
 

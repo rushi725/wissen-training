@@ -1,5 +1,12 @@
-<div [ngClass] = "{'d-none': false}">
-<table class="table table-bordered">
+<br><br>
+
+<div class="card">
+  <div class="card-header">
+      <h4>Cart Items</h4>
+  </div>
+  <div class="card-body">
+  <div class="alert alert-warning" *ngIf='total===0'>Cart is empty</div>
+    <table class="table table-bordered"  *ngIf="total!==0">
         <thead>
           <tr>
             <th>Id</th>
@@ -19,5 +26,8 @@
             <td>{{carts.price*cart.get(carts)}}</td>
           </tr>
         </tbody>
+        <h2 class="text text-dark">Total : {{total}} </h2>
 </table>
+
+</div>
 </div>
