@@ -20,13 +20,13 @@
           <tr *ngFor = "let carts of cartItems">
             <td>{{carts.id}}</td>
             <td>{{carts.name}}</td>
-            <td>{{carts.price}}</td>
+            <td>&#8377;{{carts.price}}</td>
             <td><button class = "btn btn-outline" (click)="handleBuy($event,carts,false)"><i class="fa fa-minus-square" style="font-size:20px"></i></button>&nbsp;&nbsp;{{cart.get(carts)}}
                 &nbsp;&nbsp;<button class = "btn btn-outline" (click)="handleBuy($event,carts,true)">  <i class="fa fa-plus-square" style="font-size:20px"></i></button></td>
-            <td>{{carts.price*cart.get(carts)}}</td>
+            <td>&#8377;{{carts.price*cart.get(carts)}}</td>
           </tr>
         </tbody>
-        <h2 class="text text-dark">Total : {{total}} </h2>
+        <h2 class="text text-dark">Total : &#8377;{{total}} </h2>
 </table>
 
 </div>

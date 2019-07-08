@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ItemService {
 
-  constructor() { }
+  constructor(private _http: HttpClient) { }
 
   items = [{
     id :1,
@@ -29,7 +30,8 @@ export class ItemService {
 
 
 getItems() {
-  return this.items;
+  let api = "http://localhost:8181/api/products"
+  return this._http.get(api);
 }
 getReviews(id) {
   return [
