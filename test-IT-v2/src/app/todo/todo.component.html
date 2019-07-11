@@ -1,0 +1,7 @@
+<td>{{todo.id}}</td>
+<td>{{todo.title}}</td>
+<td><a href = "/todo/view?id=<%=todo.getId()%>"  style="text-decorations:none; color:inherit;"><i class="fa fa-external-link" style="font-size: 30px;"></i></a></td>
+<td><a href = "/todo/edit?id=<%=todo.getId()%>"  style="text-decorations:none; color:inherit;"><i class="fa fa-edit" style="font-size: 30px;"></i></a></td>
+<td><a href = "/todo/delete/?id=<%=todo.getId()%>"  style="text-decorations:none; color:inherit;"><i class="fa fa-trash-o" style="font-size: 30px;"></i></a></td>
+<td><a href = "/todo/toggle/?id=<%=todo.getId()%>"  style="text-decorations:none; color:inherit;"><i Class="fa fa-check-square-o" style="font-size: 30px;" *ngIf = "todo.completed"></i>
+<i Class="fa fa-square-o" style="font-size: 30px;" *ngIf = "!todo.completed"></i></a></td>
