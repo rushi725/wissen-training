@@ -1,79 +1,21 @@
 <app-navbar></app-navbar>
-<div class="container-fluid">
-    <div class="row">
+<div class="container">
+    <!-- <div class="row">
         <nav class="sidebar col-2.4">
-            <div class="form">
-                <form class="form-inline" action="#">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                    <button class="btn btn-dark" type="submit"><span class="fa fa-search"></span></button>
-                </form>
-            </div>
-            <div class="list">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <h4>Task 1</h4>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h4>Task 2</h4>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h4>Task 3</h4>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h4>Task 3</h4>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h4>Task 3</h4>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h4>Task 3</h4>
-                    </div>
-                </div>
-            </div>
+            <app-sidebar></app-sidebar>
         </nav>
         <nav class="content col-9.7">
-            <div class="list">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <h4>Task 1</h4>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h4>Task 2</h4>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h4>Task 3</h4>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h4>Task 3</h4>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h4>Task 3</h4>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h4>Task 3</h4>
-                    </div>
-                </div>
-            </div>
         </nav>
+    </div> -->
+
+    <div class="row">
+        <div class="col-lg-6">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="col-lg-6">
+            <router-outlet name="teams"></router-outlet>
+        </div>
     </div>
+    <router-outlet name="addService"></router-outlet>
+    <router-outlet name="addTeam"></router-outlet>
 </div>

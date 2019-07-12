@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'TelefastUI';
+  constructor(private router: Router, private route: ActivatedRoute) { }
+
+  ngOnInit(){
+    this.router.navigate([{outlets: {primary: 'dashboard', addService:'dashboard',addTeam:'dashboard',teams:'dashboard'}}], 
+    {relativeTo: this.route});
+  }
 }

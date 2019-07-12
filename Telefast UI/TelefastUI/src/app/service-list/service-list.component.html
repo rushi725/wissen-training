@@ -1,0 +1,16 @@
+<div class = "services">
+        <div class="mx-5 my-2"><h3>Available Services</h3></div>
+    <div class="card shadow" *ngFor = "let ser of services">
+        <div class="card-body">
+            <h3>{{ser.name}}</h3>
+        </div>
+    </div>
+ </div>
+    <!-- <h3>Available Services</h3>
+    <cdk-virtual-scroll-viewport itemSize="50">
+        <div *cdkVirtualFor="let ser of services" class="card shadow">
+            <div class="card-body">
+                <h3>{{ser.name}}</h3>
+            </div>
+        </div>
+    </cdk-virtual-scroll-viewport> -->
