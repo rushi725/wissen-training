@@ -6,6 +6,9 @@ import { environment } from './environments/environment';
 
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 
+
+
+
 if (environment.production) {
   enableProdMode();
 }

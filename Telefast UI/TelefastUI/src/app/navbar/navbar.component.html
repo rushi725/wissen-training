@@ -1,39 +1,33 @@
 
-<nav class="navbar navbar-expand-md bg-bar navbar-dark shadow">
+<nav class="navbar navbar-expand-md bg-bar navbar-light shadow">
     <!-- Brand -->
-    <a class="navbar-brand" routerLink="/todos">Todo</a>
+    <a class="navbar-brand" routerLink="/todos">Telefast</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
-          </button>
+    </button>
      <div class="collapse navbar-collapse" id="collapsibleNavbar">
     
     <!-- Links -->
     <ul class="navbar-nav">
         <li class="nav-item">
-            <button class="btn btn-outline nav-link" data-toggle="modal" data-target="#myModal" routerLink="/todos(addTodo:addTodo)"> 
-                <span class="fa fa-plus"></span>  Add Todo
+            <button class="btn btn-outline nav-link" data-toggle="modal" data-target="#myModal1" routerLink="/todos(addTodo:addTodo)"> 
+                <span class="fa fa-plus"></span>  Add Service
             </button>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="/todo/filterByCompleted"><i class="	fa fa-check-circle" style="font-size: 18px;"></i> Completed</a>
+            <button class="btn btn-outline nav-link" data-toggle="modal" data-target="#myModal2"
+                routerLink="/todos(addTodo:addTodo)">
+                <span class="fa fa-plus"></span> Add Team
+            </button>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="/todo/clearCompleted"><i class="fa fa-trash" style="font-size: 18px;"></i> Clear Completed</a>
+            <button class="btn btn-outline nav-link" data-toggle="modal" data-target="#myModal3"
+                routerLink="/todos(addTodo:addTodo)">
+                <span class="fa fa-plus"></span> Add Task
+            </button>
         </li>
-    
-        <li class="nav-item">
-        <a class="nav-link" href="/todo/sortByDate"><i class="fa fa-calendar" style="font-size: 18px;"></i> Sort By Date</a>
-        </li>
-        
-        <li class="nav-item">
-        <a class="nav-link" href="/todo/sortByTitle"><i class="fa fa-sort-alpha-asc" style="font-size: 18px;"></i> Sort By Title</a>
-        </li>
-        
-        <li class="nav-item">
-        <a class="nav-link" href="/todo/sortById"><i class="	fa fa-sort-numeric-asc" style="font-size: 18px;"></i> Sort By Id</a>
-        </li>
-        
-    </ul>
+        <li class="nav-item"><a class="nav-link" href="#" id="profile"><span class="fa fa-user" style="font-size:25px;"></span>&nbsp;Jon Doe</a></li>
+        </ul>
     </div>
     </nav>
 

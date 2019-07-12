@@ -1,13 +1,16 @@
 
 $theme-colors: (
-    "bar": #1976d2
+    "bar": white
   );
 
 $enable-shadows:true;
-$navbar-dark-hover-color: white;
+$navbar-light-hover-color:black;
 $navbar-brand-font-size: 1.7rem;
-$navbar-dark-brand-color:   white;
+$navbar-light-brand-color:  black;
 
 .navbar {
-  min-height: 70px;
+  min-height: 75px;
 }
+
+
+
