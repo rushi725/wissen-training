@@ -8,15 +8,15 @@ import { OrderedTaskService } from '../ordered-task.service';
 })
 export class OrderedTaskListComponent implements OnInit {
 
-  constructor(private orderedTaskservice : OrderedTaskService ) { }
+  constructor(private orderedTaskservice: OrderedTaskService ) { }
 
-  orderedTasks = []
+  orderedTasks = [];
 
   ngOnInit() {
 
     this.orderedTasks = this.orderedTaskservice.getOrderedTasks();
-    this.orderedTaskservice.getStream().subscribe(e=>
-      this.orderedTasks.concat(e)); 
+    this.orderedTaskservice.getStream().subscribe(e =>
+      this.orderedTasks.concat(e));
   }
 
 }

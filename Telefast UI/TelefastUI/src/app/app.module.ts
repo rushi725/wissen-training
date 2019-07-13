@@ -16,14 +16,20 @@ import { ServiceFormComponent } from './service-form/service-form.component';
 import { TeamFormComponent } from './team-form/team-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OrderedTaskListComponent } from './ordered-task-list/ordered-task-list.component';
+import { TaskListComponent } from './task-list/task-list.component';
+import { OrderedTaskDetailComponent } from './ordered-task-detail/ordered-task-detail.component';
+import { StatusChangeComponent } from './status-change/status-change.component';
+import { TaskStatusComponent } from './task-status/task-status.component';
 
-var routes: Routes = [
+const routes: Routes = [
   { path: '', component: NavbarComponent},
-  { path:'dashboard',component: ServiceListComponent},
+  { path: 'dashboard', component: ServiceListComponent},
   // { path:'dashboard',outlet:"addService",component:ServiceFormComponent},
   // { path:'dashboard',outlet:"addTeam",component:TeamFormComponent},
-  { path:'dashboard',component:TeamListComponent}
-]
+  { path: 'dashboard', component: TeamListComponent},
+  { path: 'orderedTasks', component: OrderedTaskListComponent},
+  {path : 'orderedTask', component: TaskStatusComponent}
+];
 
 @NgModule({
   declarations: [
@@ -35,7 +41,11 @@ var routes: Routes = [
     TeamListComponent,
     ServiceFormComponent,
     TeamFormComponent,
-    OrderedTaskListComponent
+    OrderedTaskListComponent,
+    TaskListComponent,
+    OrderedTaskDetailComponent,
+    StatusChangeComponent,
+    TaskStatusComponent
   ],
   imports: [
     BrowserModule,
