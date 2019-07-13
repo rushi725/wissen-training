@@ -11,7 +11,7 @@ export class AppComponent {
 
 
   ngOnInit(){
-    this.router.navigate([{outlets: {primary: 'dashboard', addService:'dashboard',addTeam:'dashboard',teams:'dashboard'}}], 
+    this.router.navigate([{outlets: {primary: 'dashboard'}}], 
     {relativeTo: this.route});
   }
 }

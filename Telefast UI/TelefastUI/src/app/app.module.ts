@@ -4,6 +4,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ScrollDispatchModule} from '@angular/cdk/scrolling';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { RouterModule, Routes } from '@angular/router';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -14,13 +15,14 @@ import { TeamListComponent } from './team-list/team-list.component';
 import { ServiceFormComponent } from './service-form/service-form.component';
 import { TeamFormComponent } from './team-form/team-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { OrderedTaskListComponent } from './ordered-task-list/ordered-task-list.component';
 
 var routes: Routes = [
   { path: '', component: NavbarComponent},
   { path:'dashboard',component: ServiceListComponent},
-  { path:'dashboard',outlet:"addService",component:ServiceFormComponent},
-  { path:'dashboard',outlet:"addTeam",component:TeamFormComponent},
-  { path:'dashboard',outlet:"teams",component:TeamListComponent}
+  // { path:'dashboard',outlet:"addService",component:ServiceFormComponent},
+  // { path:'dashboard',outlet:"addTeam",component:TeamFormComponent},
+  { path:'dashboard',component:TeamListComponent}
 ]
 
 @NgModule({
@@ -32,7 +34,8 @@ var routes: Routes = [
     TeamComponent,
     TeamListComponent,
     ServiceFormComponent,
-    TeamFormComponent
+    TeamFormComponent,
+    OrderedTaskListComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ var routes: Routes = [
     ScrollingModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

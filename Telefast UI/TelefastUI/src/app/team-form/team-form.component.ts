@@ -8,7 +8,7 @@ import { TeamService } from '../team.service';
   styleUrls: ['./team-form.component.scss']
 })
 export class TeamFormComponent implements OnInit {
-
+  isSubmitted=false;
   teamForm: FormGroup;
   errors = {};
 
@@ -21,6 +21,7 @@ export class TeamFormComponent implements OnInit {
       name: ['', [Validators.required, Validators.minLength(3)]],
       desc: ''
     });
+    this.isSubmitted = false;
 
     const nameControl = this.teamForm.get('name');
     nameControl.valueChanges
@@ -56,6 +57,7 @@ export class TeamFormComponent implements OnInit {
     } else {
       console.log('invalid form..');
     }
+    this.isSubmitted = true;
   }
 
 }

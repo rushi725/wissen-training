@@ -12,6 +12,7 @@ export class ServiceFormComponent implements OnInit {
 
   serviceForm: FormGroup;
   errors = {};
+  isSubmitted=false;
 
   constructor(private fb: FormBuilder,
               private router: Router,
@@ -25,7 +26,7 @@ export class ServiceFormComponent implements OnInit {
     });
 
 
-
+    this.isSubmitted = false;
     const nameControl = this.serviceForm.get('name');
     nameControl.valueChanges
       .subscribe(e => {
@@ -53,15 +54,15 @@ export class ServiceFormComponent implements OnInit {
     control.setValue(control.value);
   }
 
-  handleFormSubmit() {
+  handleFormSubmit(event) {
     if (this.serviceForm.valid) {
       const formModel = this.serviceForm.value;
       this.service.addService(formModel);
       console.log(formModel);
+      this.isSubmitted=true;
     } else {
       console.log('invalid form..');
     }
-    
   }
 
 }

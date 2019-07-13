@@ -1,37 +1,18 @@
-<div class="modal fade" id="myModal1">
-        <div class="modal-dialog">
-          <div class="modal-content">
-          
-            <!-- Modal Header -->
-            <div class="modal-header">
-              <h4 class="modal-title">Add Service</h4>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            
-            <!-- Modal body -->
-            <div class="modal-body">
-              <form [formGroup]="serviceForm" (submit)="handleFormSubmit()">
-                <div class="form-group">
-                  <label>Name:</label>
-                  <input (blur)="handleBlur(serviceForm.get('name'))" 
-                         autofocus class="form-control" 
-                         [class.is-invalid]="errors.name" 
-                         formControlName="name" />
-                  <div class="text-danger">{{errors.name}}</div>
-                </div>
-                <div class="form-group">
-                  <label>Description</label>
-                  <textarea type="text" class="form-control" formControlName="desc"></textarea>
-                </div>
-                <button class="btn btn-dark" type="submit">submit</button>
-              </form>
-            </div>
-            
-            <!-- Modal footer -->
-            <!-- <div class="modal-footer">
-              <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-            </div> -->
-            
-          </div>
-        </div>
-      </div>
+<div>
+  <div *ngIf="isSubmitted">Service Added Successfully</div>
+  <form [formGroup]="serviceForm" (submit)="handleFormSubmit($event)" *ngIf= "!isSubmitted">
+    <div class="form-group">
+      <label>Name:</label>
+      <input (blur)="handleBlur(serviceForm.get('name'))" 
+              autofocus class="form-control" 
+              [class.is-invalid]="errors.name" 
+              formControlName="name" />
+      <div class="text-danger">{{errors.name}}</div>
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea type="text" class="form-control" formControlName="desc"></textarea>
+    </div>
+    <button class="btn btn-dark" type="submit">submit</button>
+  </form>
+</div>
