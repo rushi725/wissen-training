@@ -10,7 +10,7 @@
             
             <!-- Modal body -->
             <div class="modal-body">
-              <form [formGroup]="serviceForm" (click)="handleFormSubmit()">
+              <form [formGroup]="serviceForm" (submit)="handleFormSubmit()">
                 <div class="form-group">
                   <label>Name:</label>
                   <input (blur)="handleBlur(serviceForm.get('name'))" 
@@ -23,7 +23,7 @@
                   <label>Description</label>
                   <textarea type="text" class="form-control" formControlName="desc"></textarea>
                 </div>
-                <button class="btn btn-dark" type="submit"  data-dismiss="modal">submit</button>
+                <button class="btn btn-dark" type="submit">submit</button>
               </form>
             </div>
             

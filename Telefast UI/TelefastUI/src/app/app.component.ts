@@ -9,6 +9,7 @@ export class AppComponent {
   title = 'TelefastUI';
   constructor(private router: Router, private route: ActivatedRoute) { }
 
+
   ngOnInit(){
     this.router.navigate([{outlets: {primary: 'dashboard', addService:'dashboard',addTeam:'dashboard',teams:'dashboard'}}], 
     {relativeTo: this.route});

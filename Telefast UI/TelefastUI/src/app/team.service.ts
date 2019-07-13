@@ -10,46 +10,47 @@ export class TeamService {
 
   teams = [
     {
-      id:1,
-      name:"Team 1",
-      desc:"desc 1"
+      id: 1,
+      name: 'Team 1',
+      desc: 'desc 1'
     },
     {
-      id:1,
-      name:"Team 2",
-      desc:"desc 1"
+      id: 1,
+      name: 'Team 2',
+      desc: 'desc 1'
     },
     {
-      id:1,
-      name:"Team 3",
-      desc:"desc 1"
+      id: 1,
+      name: 'Team 3',
+      desc: 'desc 1'
     },
     {
-      id:1,
-      name:"Team 4",
-      desc:"desc 1"
+      id: 1,
+      name: 'Team 4',
+      desc: 'desc 1'
     },
     {
-      id:1,
-      name:"Team 5",
-      desc:"desc 1"
+      id: 1,
+      name: 'Team 5',
+      desc: 'desc 1'
     },
-  ]
-  teamStream : Subject<any> = new Subject();
+  ];
+  teamStream: Subject<any> = new Subject();
   getTeamStream() {
-    this.publishStream();
     return this.teamStream;
   }
 
-  getTeams(){
+  getTeams() {
     return this.teams;
   }
-  
 
-  addTeam(team){
+
+  addTeam(team) {
+    this.teams.push(team);
+    this.publishStream();
   }
 
-  publishStream(){
-    this.teamStream.next({teams:this.teams})
+  publishStream() {
+    this.teamStream.next({teams: this.teams});
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { TeamService } from '../team.service';
 
 @Component({
   selector: 'app-team-form',
@@ -9,47 +10,51 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class TeamFormComponent implements OnInit {
 
   teamForm: FormGroup;
-  errors = {}
+  errors = {};
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+              private teamService: TeamService) { }
 
   ngOnInit() {
     this.teamForm = this.fb.group({
-      manager_id :[],
+      manager_id : [],
       name: ['', [Validators.required, Validators.minLength(3)]],
-      desc:''
-    })
+      desc: ''
+    });
 
-    let nameControl = this.teamForm.get('name');
+    const nameControl = this.teamForm.get('name');
     nameControl.valueChanges
       .subscribe(e => {
         // console.log(e)
-      })
+      });
 
     nameControl.statusChanges
       .subscribe(e => {
         if (e === 'INVALID') {
-          let errors = nameControl.errors;
-          if (errors.required)
-            this.errors[' name'] = " name is required";
-          if (errors.minlength)
-            this.errors[' name'] = " name requires min 3 chars";
+          const errors = nameControl.errors;
+          if (errors.required) {
+            this.errors[' name'] = ' name is required';
+          }
+          if (errors.minlength) {
+            this.errors[' name'] = ' name requires min 3 chars';
+          }
+        } else {
+          delete this.errors[' name'];
         }
-        else
-          delete this.errors[' name']
-      })
+      });
 
 
   }
   handleBlur(control) {
-    control.setValue(control.value)
+    control.setValue(control.value);
   }
   handleFormSubmit(event) {
     if (this.teamForm.valid) {
-      let formModel = this.teamForm.value;
+      const formModel = this.teamForm.value;
+      this.teamService.addTeam(formModel);
       console.log(formModel);
     } else {
-      console.log("invalid form..")
+      console.log('invalid form..');
     }
   }
 

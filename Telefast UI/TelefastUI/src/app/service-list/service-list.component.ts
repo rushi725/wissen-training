@@ -8,15 +8,16 @@ import { ServiceService } from '../service.service';
   // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ServiceListComponent implements OnInit {
-services=[]
-  constructor(private service:ServiceService) { }
+services = [];
+  constructor(private service: ServiceService) { }
 
 
   ngOnInit() {
     this.services = this.service.getServices();
-      this.service.getServicesStream()
-      .subscribe((e)=>this.services = e)
-      console.log(this.services)
+    this.service.getServicesStream().subscribe(e=>{
+        this.services.concat(e);
+    })
+
   }
 
 

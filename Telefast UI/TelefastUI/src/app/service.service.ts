@@ -8,47 +8,49 @@ export class ServiceService {
 
   services = [
     {
-      id:1,
-      name:"Service 1",
-      desc:"desc 1"
+      id: 1,
+      name: 'Service 1',
+      desc: 'desc 1'
     },
     {
-      id:1,
-      name:"Service 1",
-      desc:"desc 1"
+      id: 1,
+      name: 'Service 1',
+      desc: 'desc 1'
     },
     {
-      id:1,
-      name:"Service 1",
-      desc:"desc 1"
+      id: 1,
+      name: 'Service 1',
+      desc: 'desc 1'
     },
     {
-      id:1,
-      name:"Service 1",
-      desc:"desc 1"
+      id: 1,
+      name: 'Service 1',
+      desc: 'desc 1'
     },
     {
-      id:1,
-      name:"Service 1",
-      desc:"desc 1"
+      id: 1,
+      name: 'Service 1',
+      desc: 'desc 1'
     },
-  ]
+  ];
   constructor() { }
-  serviceStream : Subject<any> = new Subject();
+  serviceStream: Subject<any> = new Subject();
   getServicesStream() {
-    this.publishStream();
     return this.serviceStream;
   }
 
-  getServices(){
+  getServices() {
     return this.services;
   }
-  
 
-  addService(service){
+
+  addService(service) {
+    this.services.push(service);
+    this.publishStream();
   }
 
-  publishStream(){
-    this.serviceStream.next({services:this.services})
+  publishStream() {
+    this.serviceStream.next({services: this.services});
+    console.log(this.services);
   }
 }

@@ -8,14 +8,16 @@ import { TeamService } from '../team.service';
 })
 export class TeamListComponent implements OnInit {
 
-  constructor(private teamService:TeamService) { }
-  teams = []
+  constructor(private teamService: TeamService) { }
+  teams = [];
   ngOnInit() {
 
     this.teams = this.teamService.getTeams();
-    this.teamService.getTeamStream().subscribe((e)=>{
-      this.teams = e;
-    })
+    this.teamService.getTeamStream().subscribe((e) => {
+      if (e !== '') {
+        this.teams.push(e);
+      }
+    });
   }
 
 }
