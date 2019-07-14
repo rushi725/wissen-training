@@ -1,1 +1,30 @@
-<p>ordered-service-list works!</p>
+
+<div class="orderedService">
+    <h3>Services</h3>
+    <table class="table table-responsive-md">
+        <thead class="thead-dark shadow mb-2">
+            <tr>
+                <th>Service</th>
+                <th>Status</th>
+                <th>Progress</th>
+                <th>Service Manager</th>
+                <th>Send Message</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let service of orderedServices" class="shadow-sm mx-2">
+                <td>{{service.serviceName}}</td>
+                <td><span [ngClass]="{'bg bg-info':true, 'rounded-lg':true, 'border border-dark':true, 'p-2':true,
+                    'bg bg-success':service.status==='Completed',
+                               'bg bg-danger':service.status==='Cancelled',
+                               'bg bg-warning':service.status==='Pending',
+                               'bg bg-info':service.status==='InProgress',
+                            'bg bg-secondary':service.status=='NotStarted'}
+                            ">{{service.status}}</span></td>
+                <td><mat-progress-bar mode="determinate" value={{service.progress}}></mat-progress-bar></td>
+                <td>{{service.serviceManager}}</td>
+                <td><button class="btn btn-outline-dark"><i class="fa fa-envelope" style="font-size: 26px"></i></button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -5,6 +5,7 @@ import {ScrollDispatchModule} from '@angular/cdk/scrolling';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { RouterModule, Routes } from '@angular/router';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -21,6 +22,9 @@ import { OrderedTaskDetailComponent } from './ordered-task-detail/ordered-task-d
 import { StatusChangeComponent } from './status-change/status-change.component';
 import { TaskStatusComponent } from './task-status/task-status.component';
 import { OrderedServiceListComponent } from './ordered-service-list/ordered-service-list.component';
+import { TaskFormComponent } from './task-form/task-form.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatRadioModule} from '@angular/material/radio';
 
 const routes: Routes = [
   { path: '', component: NavbarComponent},
@@ -29,7 +33,8 @@ const routes: Routes = [
   // { path:'dashboard',outlet:"addTeam",component:TeamFormComponent},
   { path: 'dashboard', component: TeamListComponent},
   { path: 'orderedTasks', component: OrderedTaskListComponent},
-  {path : 'orderedTask', component: TaskStatusComponent}
+  {path : 'orderedTask', component: TaskStatusComponent},
+  {path : 'orderedServices', component: OrderedServiceListComponent}
 ];
 
 @NgModule({
@@ -47,7 +52,8 @@ const routes: Routes = [
     OrderedTaskDetailComponent,
     StatusChangeComponent,
     TaskStatusComponent,
-    OrderedServiceListComponent
+    OrderedServiceListComponent,
+    TaskFormComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +62,11 @@ const routes: Routes = [
     ScrollingModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
-    NgbModule
+    NgbModule,
+    MatProgressBarModule,
+    MatSelectModule,
+    MatRadioModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
