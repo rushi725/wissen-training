@@ -27,7 +27,7 @@ export class TaskFormComponent implements OnInit {
     const nameControl = this.taskForm.get('name');
     nameControl.valueChanges
       .subscribe(e => {
-         console.log(e)
+         //console.log(e)
       });
 
     nameControl.statusChanges

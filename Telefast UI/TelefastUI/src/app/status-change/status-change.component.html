@@ -3,17 +3,17 @@
         <h3>Change Status </h3>
     </div>
     <div class="card-body">
-        <div class="form"> 
-            <div class="form-control">
-                <label for="status">Select Status:</label>
-            </div>
-            <select class="form-control form-group-lg" id="status" class="my-1">
-                <option>InProgress</option>
-                <option>Pending</option>
-                <option>Completed</option>
-            </select>
+        <div class="form">
+            <mat-form-field>
+                <mat-label>Change Status</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let status of status" [value]="status.value">
+                        {{status.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
             <div class="form-group-lg">
-            <button class="btn btn-dark mr-2">Change Status</button>
+                <button class="btn btn-dark mr-2">Change Status</button>
             </div>
         </div>
     </div>

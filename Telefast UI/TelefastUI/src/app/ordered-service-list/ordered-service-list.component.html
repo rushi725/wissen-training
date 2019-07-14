@@ -1,4 +1,3 @@
-
 <div class="orderedService">
     <h3>Services</h3>
     <table class="table table-responsive-md">
@@ -7,7 +6,8 @@
                 <th>Service</th>
                 <th>Status</th>
                 <th>Progress</th>
-                <th>Service Manager</th>
+                <th *ngIf="type==='Project Manager'">Service Manager</th>
+                <th *ngIf="type==='Service Manager'">Project Name</th>
                 <th>Send Message</th>
             </tr>
         </thead>
@@ -21,8 +21,11 @@
                                'bg bg-info':service.status==='InProgress',
                             'bg bg-secondary':service.status=='NotStarted'}
                             ">{{service.status}}</span></td>
-                <td><mat-progress-bar mode="determinate" value={{service.progress}}></mat-progress-bar></td>
-                <td>{{service.serviceManager}}</td>
+                <td><p>
+                    <ngb-progressbar type="success" [value]="service.progress" [striped]="true" [animated]="true"><i>{{service.progress}}%</i></ngb-progressbar>
+                </p></td>
+                <td *ngIf="type==='Project Manager'">{{service.serviceManager}}</td>
+                <td *ngIf="type==='Service Manager'">{{service.projectName}}</td>
                 <td><button class="btn btn-outline-dark"><i class="fa fa-envelope" style="font-size: 26px"></i></button></td>
             </tr>
         </tbody>

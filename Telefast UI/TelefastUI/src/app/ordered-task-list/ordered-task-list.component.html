@@ -1,5 +1,7 @@
 <div class="orderedTask">
-    <h3>Tasks</h3>
+    <div class="row">
+        <h3 class="col-sm-12 col-md-8">Tasks</h3>
+    </div>
     <table class="table table-responsive-md">
         <thead class="thead-dark shadow mb-2">
             <tr>
@@ -23,9 +25,12 @@
                             ">{{task.status}}</span></td>
                 <td>{{task.teamMember}}</td>
                 <td><button class="btn btn-outline-dark"><i class="fa fa-envelope" style="font-size: 26px"></i></button></td>
-                <td><button class="btn btn-outline-dark"><i class="fa fa-share-square" style="font-size: 26px"></i></button></td>
+                <td><button class="btn btn-outline-dark"  (click)="transferTask()"><i class="fa fa-share-square" style="font-size: 26px"></i></button></td>
                 <td *ngIf="task.status!=='Cancelled'"><button class="btn btn-outline-danger"><i class="fa fa-close" style="font-size: 26px"></i></button></td>
             </tr>
         </tbody>
     </table>
+    <div class=" col-md-6">
+    <app-transfer-task-form *ngIf="isClicked"></app-transfer-task-form>
+    </div>
 </div>

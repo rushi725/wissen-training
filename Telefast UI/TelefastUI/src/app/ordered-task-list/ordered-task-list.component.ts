@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderedTaskService } from '../ordered-task.service';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-ordered-task-list',
@@ -8,9 +9,10 @@ import { OrderedTaskService } from '../ordered-task.service';
 })
 export class OrderedTaskListComponent implements OnInit {
 
-  constructor(private orderedTaskservice: OrderedTaskService ) { }
+  constructor(private orderedTaskservice: OrderedTaskService, private modalService: NgbModal ) { }
 
   orderedTasks = [];
+  isClicked=false;
 
   ngOnInit() {
 
@@ -18,5 +20,12 @@ export class OrderedTaskListComponent implements OnInit {
     this.orderedTaskservice.getStream().subscribe(e =>
       this.orderedTasks.concat(e));
   }
+
+  transferTask() {
+    this.isClicked = true;
+  }
+
+
+
 
 }

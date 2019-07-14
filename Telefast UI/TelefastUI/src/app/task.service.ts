@@ -8,35 +8,35 @@ export class TaskService {
   tasks = [
     {
       id: 1,
-      taskName : 'task1',
+      name : 'task1',
       desc : 'desc 1',
       duration: '12',
       approval : true,
     },
     {
       id: 1,
-      taskName : 'task1',
+      name : 'task1',
       desc : 'desc 1',
       duration: '12',
       approval : true,
     },
     {
       id: 1,
-      taskName : 'task1',
+      name : 'task1',
       desc : 'desc 1',
       duration: '12',
       approval : true,
     },
     {
       id: 1,
-      taskName : 'task1',
+      name : 'task1',
       desc : 'desc 1',
       duration: '12',
       approval : true,
     },
     {
       id: 1,
-      taskName : 'task1',
+      name : 'task1',
       desc : 'desc 1',
       duration: '12',
       approval : true,
@@ -45,11 +45,11 @@ export class TaskService {
   constructor() { }
   orderedTasksStream: Subject<any> = new Subject();
 
-  getStream() {
+  getTaskStream() {
     return this.orderedTasksStream;
   }
 
-  getOrderedTasks() {
+  getTasks() {
     return this.tasks;
   }
 

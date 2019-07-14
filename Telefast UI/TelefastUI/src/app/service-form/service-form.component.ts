@@ -38,13 +38,13 @@ export class ServiceFormComponent implements OnInit {
         if (e === 'INVALID') {
           const errors = nameControl.errors;
           if (errors.required) {
-            this.errors[' name'] = ' name is required';
+            this.errors['name'] = ' name is required';
           }
           if (errors.minlength) {
-            this.errors[' name'] = ' name requires min 3 chars';
+            this.errors['name'] = ' name requires min 3 chars';
           }
         } else {
-          delete this.errors[' name'];
+          delete this.errors['name'];
         }
       });
 

@@ -6,6 +6,8 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import { RouterModule, Routes } from '@angular/router';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -25,6 +27,11 @@ import { OrderedServiceListComponent } from './ordered-service-list/ordered-serv
 import { TaskFormComponent } from './task-form/task-form.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { ProductManagerComponent } from './product-manager/product-manager.component';
+import { ProjectManagerComponent } from './project-manager/project-manager.component';
+import { ServiceManagerComponent } from './service-manager/service-manager.component';
+import { TransferTaskFormComponent } from './transfer-task-form/transfer-task-form.component';
 
 const routes: Routes = [
   { path: '', component: NavbarComponent},
@@ -34,7 +41,8 @@ const routes: Routes = [
   { path: 'dashboard', component: TeamListComponent},
   { path: 'orderedTasks', component: OrderedTaskListComponent},
   {path : 'orderedTask', component: TaskStatusComponent},
-  {path : 'orderedServices', component: OrderedServiceListComponent}
+  {path : 'orderedServices', component: ProjectManagerComponent},
+  {path : 'serviceManager', component: ServiceManagerComponent}
 ];
 
 @NgModule({
@@ -53,20 +61,25 @@ const routes: Routes = [
     StatusChangeComponent,
     TaskStatusComponent,
     OrderedServiceListComponent,
-    TaskFormComponent
+    TaskFormComponent,
+    ProjectDetailComponent,
+    ProductManagerComponent,
+    ProjectManagerComponent,
+    ServiceManagerComponent,
+    TransferTaskFormComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    ScrollDispatchModule,
     ScrollingModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
     NgbModule,
     MatProgressBarModule,
     MatSelectModule,
-    MatRadioModule
-    
+    MatRadioModule,
+    MatAutocompleteModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

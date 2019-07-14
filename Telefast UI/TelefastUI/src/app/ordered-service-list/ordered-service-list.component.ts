@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { OrderedServiceService } from '../ordered-service.service';
+
 
 @Component({
   selector: 'app-ordered-service-list',
@@ -8,13 +9,11 @@ import { OrderedServiceService } from '../ordered-service.service';
 })
 export class OrderedServiceListComponent implements OnInit {
 
-  constructor(private service:OrderedServiceService) { }
-  orderedServices = []
+  constructor() { }
+  @Input('value') orderedServices;
+  @Input('type') type;
 
-  ngOnInit() {
+  ngOnInit(){
 
-    this.orderedServices = this.service.getOrderedServices();
-    this.service.getStream().subscribe(e=>this.orderedServices.concat(e));
   }
-
 }
