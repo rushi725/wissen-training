@@ -20,6 +20,7 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { OrderedTaskDetailComponent } from './ordered-task-detail/ordered-task-detail.component';
 import { StatusChangeComponent } from './status-change/status-change.component';
 import { TaskStatusComponent } from './task-status/task-status.component';
+import { OrderedServiceListComponent } from './ordered-service-list/ordered-service-list.component';
 
 const routes: Routes = [
   { path: '', component: NavbarComponent},
@@ -45,7 +46,8 @@ const routes: Routes = [
     TaskListComponent,
     OrderedTaskDetailComponent,
     StatusChangeComponent,
-    TaskStatusComponent
+    TaskStatusComponent,
+    OrderedServiceListComponent
   ],
   imports: [
     BrowserModule,
