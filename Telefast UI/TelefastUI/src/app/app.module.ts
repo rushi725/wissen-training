@@ -1,13 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ScrollDispatchModule} from '@angular/cdk/scrolling';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { RouterModule, Routes } from '@angular/router';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
+import {MatTreeModule} from '@angular/material/tree';
+import {MatCardModule} from '@angular/material/card';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatIconModule} from '@angular/material/icon';
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import {MatButtonModule} from '@angular/material/button';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -32,6 +38,7 @@ import { ProductManagerComponent } from './product-manager/product-manager.compo
 import { ProjectManagerComponent } from './project-manager/project-manager.component';
 import { ServiceManagerComponent } from './service-manager/service-manager.component';
 import { TransferTaskFormComponent } from './transfer-task-form/transfer-task-form.component';
+import { ViewWorkflowComponent } from './view-workflow/view-workflow.component';
 
 const routes: Routes = [
   { path: '', component: NavbarComponent},
@@ -42,7 +49,8 @@ const routes: Routes = [
   { path: 'orderedTasks', component: OrderedTaskListComponent},
   {path : 'orderedTask', component: TaskStatusComponent},
   {path : 'orderedServices', component: ProjectManagerComponent},
-  {path : 'serviceManager', component: ServiceManagerComponent}
+  {path : 'serviceManager', component: ServiceManagerComponent},
+  {path : 'workflow', component: ViewWorkflowComponent}
 ];
 
 @NgModule({
@@ -66,7 +74,9 @@ const routes: Routes = [
     ProductManagerComponent,
     ProjectManagerComponent,
     ServiceManagerComponent,
-    TransferTaskFormComponent
+    TransferTaskFormComponent,
+    ViewWorkflowComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -79,7 +89,14 @@ const routes: Routes = [
     MatSelectModule,
     MatRadioModule,
     MatAutocompleteModule,
-    MatInputModule
+    MatInputModule,
+    MatTreeModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatIconModule,
+    MatButtonModule,
+    MatBottomSheetModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
