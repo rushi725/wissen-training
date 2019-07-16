@@ -14,6 +14,7 @@ import { ItemListComponent } from './item-list/item-list.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ReviewFormComponent } from './review-form/review-form.component';
+import { OrderComponent } from './order/order.component';
 
 
 var routes: Routes = [
@@ -27,6 +28,7 @@ var routes: Routes = [
     }
      ] },
   { path: 'cart', component: CartViewComponent },
+  { path: 'order', component: OrderComponent },
   { path: '**', component: NotFoundComponent },
 ]
 
@@ -41,7 +43,8 @@ var routes: Routes = [
     ItemListComponent,
     HomeComponent,
     NotFoundComponent,
-    ReviewFormComponent
+    ReviewFormComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,

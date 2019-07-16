@@ -25,3 +25,12 @@ Enum
 				 				 |__________\
 
 
+
+
+
+
+
+
+
+Project  - > Models -> Layers-> 1.Data Repository
+								2.Service Layer

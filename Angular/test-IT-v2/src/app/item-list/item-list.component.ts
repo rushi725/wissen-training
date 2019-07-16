@@ -15,18 +15,19 @@ export class ItemListComponent implements OnInit {
   cart = null;
   constructor(private cartService: CartService,private itemService:ItemService,private route: ActivatedRoute) { }
 
-  items = [];
+  items: Array<any> =  [];
 
 ngOnInit() {
-  this.itemService.getItems().subscribe(e=>
-    this.items = e);
+  //this.items = this.itemService.getItems();
+  this.itemService.getItems().subscribe((e:any)=>{
+    console.log(e);
+    this.items = e;
+  })
   this.cart = this.cartService.getCart();
+  console.log(this.cart);
   this.cartService.getCartStream()
     .subscribe(e => {
       this.cart = e.cart;
     })
 }
-
-
-
 }

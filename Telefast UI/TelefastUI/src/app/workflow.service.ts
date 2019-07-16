@@ -3,6 +3,7 @@ import { Subject, BehaviorSubject } from 'rxjs';
 import { Task } from './task.model';
 import { Employee } from './employee.model';
 import { Team } from './team.model';
+import { toUnicode } from 'punycode';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +33,7 @@ export class WorkflowService {
     },
     {
       id : 2,
-      task : new Task(1,'Task 2','Desc 2',10,true),
+      task : new Task(2,'Task 2','Desc 2',10,true),
       team : new Team(102,'Team 2','Desc 2'),
       seqNo : 2,
       prev : 1
@@ -54,13 +55,13 @@ export class WorkflowService {
     },
     {
       id : 5,
-      task : new Task(4,'Task 4','Desc 4',10,true),
+      task : new Task(5,'Task 4','Desc 4',10,true),
       team : new Team(103,'Team 4','Desc 4'),
       seqNo : 5,
       prev : 3
     },
   ];
-  tasks = [
+  orderedTasks = [
     {
         id:1,
         task: new Task(1,'Task 1','Desc 1',10,true),
@@ -72,7 +73,7 @@ export class WorkflowService {
     },
     {
       id:2,
-      task: new Task(1,'Task 2','Desc 1',10,true),
+      task: new Task(2,'Task 2','Desc 1',10,true),
       employee : new Employee(10,new Team(100,'Team 1','Desc 1'),'Rushabh','Shah','Team_Member','Address 1','9096678120',false),
       status : 'In Progress',
       date : '04/05/2018',
@@ -81,7 +82,7 @@ export class WorkflowService {
   },
   {
     id:3,
-    task: new Task(1,'Task 3','Desc 1',10,true),
+    task: new Task(3,'Task 3','Desc 1',10,true),
     employee : new Employee(10,new Team(100,'Team 1','Desc 1'),'Rushabh','Shah','Team_Member','Address 1','9096678120',false),
     status : 'In Progress',
     date : '04/05/2018',
@@ -90,7 +91,7 @@ export class WorkflowService {
   },
   {
     id:4,
-    task: new Task(1,'Task 4','Desc 1',10,true),
+    task: new Task(4,'Task 4','Desc 1',10,true),
     employee : new Employee(10,new Team(100,'Team 1','Desc 1'),'Rushabh','Shah','Team_Member','Address 1','9096678120',false),
     status : 'In Progress',
     date : '04/05/2018',
@@ -99,7 +100,7 @@ export class WorkflowService {
   },
   {
     id:5,
-    task: new Task(1,'Task 5','Desc 1',10,true),
+    task: new Task(5,'Task 5','Desc 1',10,true),
     employee : new Employee(10,new Team(100,'Team 1','Desc 1'),'Rushabh','Shah','Team_Member','Address 1','9096678120',false),
     status : 'In Progress',
     date : '04/05/2018',
@@ -112,26 +113,44 @@ export class WorkflowService {
 
   
   getWorkFlowStream() {
+    this.publishStream();
     return this.workFlowStream;
   }
 
   getWorkFlow(){
-    return this.workFlow;
+    this.createWorkflow();
+    return this.taskWorkflow;
   }
 
   publishStream() {
-    this.workFlowStream.next(e=>{taskFlow : this.workFlow});
+    this.workFlowStream.next(e=>{taskWorkFlow : this.taskWorkflow});
   }
-
   createWorkflow() {
-      let currentTask = this.tasks.find(t=>t.task.id === this.workFlow.find(e=>e.seqNo===1).task.id);
-      let prev = 1;
-      let nextTasks: Array<any> = this.workFlow.filter(e=>e.prev===prev);
-      let taskNode  = new TaskNode(currentTask,nextTasks);
-      this.taskWorkflow.push(taskNode);
-      while(true){
-
+      this.taskWorkflow = [];
+      let queue : Array<TaskNode> = [];
+      let currentTasks : Array<any> = this.orderedTasks.filter(t=>t.task.id === this.workFlow.find(e=>e.prev===null).task.id);
+      console.log(currentTasks);
+      currentTasks.forEach(e=>{
+        let taskNode = new TaskNode(e);
+        queue.push(taskNode);
+        this.taskWorkflow.push(taskNode);
+      });
+      while(queue.length!==0){
+          let node:TaskNode = queue.shift();
+          let childs: Array<any> =  this.workFlow.filter(e=>e.prev === node.task.id);
+          if(childs){
+            let childrenTasks : Array<any> = this.orderedTasks.filter(t=>childs.find(e=>e.task.id===t.task.id));
+            childrenTasks.forEach(e=>{
+              let taskNode = new TaskNode(e,[]);
+              queue.push(taskNode);
+              let childs:Array<TaskNode> = node.children.getValue();
+              childs.push(taskNode);
+              //node.children.next(childs)
+          })
+        }
       }
+      this.taskWorkflow.push(new TaskNode({name:'.',
+      task: new Task(0,'.................','Desc 1',10,true),}))
   }
 
 }

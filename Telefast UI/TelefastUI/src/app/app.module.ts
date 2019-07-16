@@ -39,6 +39,7 @@ import { ProjectManagerComponent } from './project-manager/project-manager.compo
 import { ServiceManagerComponent } from './service-manager/service-manager.component';
 import { TransferTaskFormComponent } from './transfer-task-form/transfer-task-form.component';
 import { ViewWorkflowComponent } from './view-workflow/view-workflow.component';
+import { WorkflowService } from './workflow.service';
 
 const routes: Routes = [
   { path: '', component: NavbarComponent},
@@ -98,7 +99,7 @@ const routes: Routes = [
     MatBottomSheetModule,
     MatButtonToggleModule
   ],
-  providers: [],
+  providers: [WorkflowService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

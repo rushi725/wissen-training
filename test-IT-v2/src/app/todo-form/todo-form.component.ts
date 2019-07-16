@@ -44,6 +44,7 @@ export class TodoFormComponent implements OnInit {
   }
 
   handleFormSubmit(event) {
+    console.log("sdjskdjskdj")
     if (this.todoForm.valid) {
       let formModel = this.todoForm.value;
       console.log(formModel);

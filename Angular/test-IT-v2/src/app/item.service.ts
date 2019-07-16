@@ -8,30 +8,31 @@ export class ItemService {
 
   constructor(private _http: HttpClient) { }
 
-  items = [{
-    id :1,
-    type : "Veg",
-    name: "Veg Thali",
-    imgPath:'assets/veg.jpg',
-    price:200.00,
-    canBuy:true,
-    description: "veg is always cool"
-  },
-  {
-    id :2,
-    price:500,
-    type: "Non Veg",
-    name: "Chicken",
-    imgPath:'assets/nonveg.jpg',
-    canBuy:true,
-    description: "nonveg is always cool"
-  }
-]
+//   items = [{
+//     id :1,
+//     type : "Veg",
+//     name: "Veg Thali",
+//     imgPath:'assets/veg.jpg',
+//     price:200.00,
+//     canBuy:true,
+//     description: "veg is always cool"
+//   },
+//   {
+//     id :2,
+//     price:500,
+//     type: "Non Veg",
+//     name: "Chicken",
+//     imgPath:'assets/nonveg.jpg',
+//     canBuy:true,
+//     description: "nonveg is always cool"
+//   }
+// ]
 
 
 getItems() {
-  let api = "http://localhost:8181/api/products"
+  let api = "http://localhost:8081/api/v1/items"
   return this._http.get(api);
+  //return this.items;
 }
 getReviews(id) {
   return [
