@@ -42,7 +42,7 @@ import { ViewWorkflowComponent } from './view-workflow/view-workflow.component';
 import { WorkflowService } from './workflow.service';
 
 const routes: Routes = [
-  { path: '', component: NavbarComponent},
+  // { path: '', component: NavbarComponent},
   { path: 'dashboard', component: ServiceListComponent},
   // { path:'dashboard',outlet:"addService",component:ServiceFormComponent},
   // { path:'dashboard',outlet:"addTeam",component:TeamFormComponent},

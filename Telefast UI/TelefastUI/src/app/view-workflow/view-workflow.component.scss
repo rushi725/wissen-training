@@ -1,21 +1,21 @@
 .example-tree-progress-bar {
-    margin-left: 30px;
+    margin-left: 65px;
   }
   
   .example-tree-nested-node {
-    padding-left: 30px;
+    padding-left: 65px;
   }
   
   mat-tree {
-    margin-left: 40px;
+    margin-left: 65px;
   }
   .mat-tree-node {
-    padding: 0;
-    background-color: white;
+    padding: 10px;
+    background-color:white;
   }
   
   .mat-nested-tree-node {
-    top: -24px;
+    top: -65px;
   }
   
   ul, li { 
@@ -29,33 +29,34 @@
   }
   
   ul { 
-    padding-left: 40px; 
+    padding-left: 55px; 
   }
   
   li { 
-    padding-left: 40px;
+    padding-left: 55px;
     border: 1px solid black;
     border-width: 0 0 1px 1px; 
     position: relative;
-    top: -24px;
+    margin-left: 19px;
+    top: -50px;
   }
   
   li.mat-tree-node,
   li div { 
     margin: 0;
     position: relative;
-    top: 24px; 
+    top: 50px; 
   }
   
   li ul {
     border-top: 1px solid black;
-    margin-left: -40px;
-    padding-left: 60px;
+    margin-left: -55px;
+    padding-left: 65px;
   }
   
   .mat-nested-tree-node:last-child ul {
     border-left: 1px solid white;
-    margin-left: -41px;
+    margin-left: -56px;
   }
   
   .mat-icon-button {
@@ -63,5 +64,18 @@
   }
 
   .workflow{
+    padding: 20px;
     margin-top : 50px;
+  }
+
+  .cards {
+    padding: 50px;
+  }
+
+  .nod {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border: 1px solid black;
   }
