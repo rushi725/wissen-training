@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderedServiceService } from '../ordered-service.service';
+import { ServiceService } from '../service.service';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { ProjectService } from '../project.service';
 
 @Component({
   selector: 'app-project-manager',
@@ -8,13 +11,27 @@ import { OrderedServiceService } from '../ordered-service.service';
 })
 export class ProjectManagerComponent implements OnInit {
 
-  constructor(private service: OrderedServiceService) { }
-  orderedServices = [];
+  constructor(private orderService: OrderedServiceService,
+              private projectService: ProjectService) { }
+
+  serviceExists = true;
+  orderedServices: any = [];
   type = 'Project Manager';
+  projectManagerId = 60;
+  project = null;
+
+  closeResult: string;
+
 
   ngOnInit() {
-    this.orderedServices = this.service.getOrderedServices();
-    this.service.getStream().subscribe(e => this.orderedServices.concat(e));
-  }
+    this.projectService.getProjectByManager(this.projectManagerId)
+    .subscribe((e: any) => this.project = e
+    );
 
+    this.orderService.getOrderedService().subscribe((e: any) => this.orderedServices = e);
+
+    this.orderService.getorderServiceStream().subscribe((e: any) => this.orderedServices = e.orderedServices);
+
+    this.projectService.getProjectStream().subscribe((e: any) => this.project = e.project);
+  }
 }

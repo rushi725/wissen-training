@@ -7,14 +7,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
-import { MatTreeModule } from '@angular/material/tree';
-import { MatCardModule } from '@angular/material/card';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatIconModule } from '@angular/material/icon';
-import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
-import { MatButtonModule } from '@angular/material/button';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import {MatTreeModule} from '@angular/material/tree';
+import {MatCardModule} from '@angular/material/card';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatIconModule} from '@angular/material/icon';
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import {MatButtonModule} from '@angular/material/button';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { HttpClientModule } from '@angular/common/http';
+
+
+
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -41,7 +44,12 @@ import { ServiceManagerComponent } from './service-manager/service-manager.compo
 import { TransferTaskFormComponent } from './transfer-task-form/transfer-task-form.component';
 import { ViewWorkflowComponent } from './view-workflow/view-workflow.component';
 import { WorkflowService } from './workflow.service';
+import { ProjectFormComponent } from './project-form/project-form.component';
+import { CustomerFormComponent } from './customer-form/customer-form.component';
+import { MatNativeDateModule } from '@angular/material/core';
 import { CreateWorkflowComponent } from './create-workflow/create-workflow.component';
+import { OrderedServiceFormComponent } from './ordered-service-form/ordered-service-form.component';
+import { WorkflowResolverService } from './workflow-resolver.service';
 
 const routes: Routes = [
   // { path: '', component: NavbarComponent},
@@ -53,7 +61,12 @@ const routes: Routes = [
   { path: 'orderedTask', component: TaskStatusComponent },
   { path: 'orderedServices', component: ProjectManagerComponent },
   { path: 'serviceManager', component: ServiceManagerComponent },
-  { path: 'workflow', component: ViewWorkflowComponent },
+  { path: 'workflow',
+    component: ViewWorkflowComponent,
+    resolve: {
+      taskWorkflow: WorkflowResolverService
+    }
+  },
   { path: 'cworkflow', component: CreateWorkflowComponent }
 ];
 
@@ -80,7 +93,10 @@ const routes: Routes = [
     ServiceManagerComponent,
     TransferTaskFormComponent,
     ViewWorkflowComponent,
-    CreateWorkflowComponent
+    ProjectFormComponent,
+    CustomerFormComponent,
+    CreateWorkflowComponent,
+    OrderedServiceFormComponent
   ],
   imports: [
     BrowserModule,
